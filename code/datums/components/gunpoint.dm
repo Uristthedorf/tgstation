@@ -163,6 +163,7 @@
 
 	if(weapon.chambered && weapon.chambered.loaded_projectile)
 		weapon.chambered.loaded_projectile.damage *= damage_mult
+		weapon.chambered.loaded_projectile.speed *= damage_mult
 		if(weapon.chambered.loaded_projectile.wound_bonus != CANT_WOUND)
 			weapon.chambered.loaded_projectile.wound_bonus += damage_mult * GUNPOINT_BASE_WOUND_BONUS
 			weapon.chambered.loaded_projectile.exposed_wound_bonus += damage_mult * GUNPOINT_BASE_WOUND_BONUS
@@ -170,6 +171,7 @@
 	var/fired = weapon.fire_gun(target, shooter)
 	if(!fired && weapon.chambered?.loaded_projectile)
 		weapon.chambered.loaded_projectile.damage /= damage_mult
+		weapon.chambered.loaded_projectile.speed /= damage_mult
 		if(weapon.chambered.loaded_projectile.wound_bonus != CANT_WOUND)
 			weapon.chambered.loaded_projectile.wound_bonus -= damage_mult * GUNPOINT_BASE_WOUND_BONUS
 			weapon.chambered.loaded_projectile.exposed_wound_bonus -= damage_mult * GUNPOINT_BASE_WOUND_BONUS
